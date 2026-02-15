@@ -1,0 +1,73 @@
+/* pages/thermal/thermal.wxss */
+
+/* 分段控制器 */
+.segment-control {
+  display: flex;
+  background-color: #F5F5F5;
+  border-radius: 12rpx;
+  padding: 6rpx;
+}
+
+.segment-item {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666666;
+  border-radius: 8rpx;
+  transition: all 0.3s;
+}
+
+.segment-item.active {
+  background-color: #0052D9;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* 选择器显示 */
+.picker-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F5F5F5;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.arrow {
+  color: #999999;
+  font-size: 24rpx;
+}
+
+/* 输入框错误状态 */
+.error-border {
+  border: 2rpx solid #D9001B !important;
+}
+
+/* 结果字段高亮 */
+.result-field {
+  color: #0052D9;
+  font-weight: 600;
+}
+
+/* 操作按钮区域 */
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 40rpx;
+  padding: 0 20rpx 40rpx;
+}
+
+.action-buttons > view {
+  flex: 1;
+}
+
+/* 范围提示 */
+.hint-text {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 12rpx;
+  line-height: 1.5;
+}

@@ -1,0 +1,50 @@
+<view class="container">
+  <!-- 顶部筛选栏 -->
+  <view class="filter-bar">
+    <scroll-view scroll-x="true" class="tabs-scroll" enable-flex="true">
+      <view class="tab-item {{filterType === 'all' ? 'active' : ''}}" bindtap="changeFilter" data-type="all">全部</view>
+      <view class="tab-item {{filterType === 'thermal' ? 'active' : ''}}" bindtap="changeFilter" data-type="thermal">温度</view>
+      <view class="tab-item {{filterType === 'pressure' ? 'active' : ''}}" bindtap="changeFilter" data-type="pressure">压力</view>
+    </scroll-view>
+    <view class="clear-btn" bindtap="clearAllHistory">
+      <text class="icon">🗑</text>
+    </view>
+  </view>
+
+  <!-- 列表区域 -->
+  <view class="history-list" wx:if="{{displayList.length > 0}}">
+    <view class="card" wx:for="{{displayList}}" wx:key="index" bindtap="goToDetail" data-index="{{item.originalIndex}}">
+
+      <view class="card-header">
+        <view class="badge {{item.type}}">{{item.typeLabel}}</view>
+        <view class="time">{{item.timeLabel}}</view>
+      </view>
+
+      <view class="card-content">
+        <view class="main-info">
+          <text class="title">{{item.title}}</text>
+          <text class="status-tag pass" wx:if="{{item.result === 'pass'}}">合格</text>
+          <text class="status-tag fail" wx:if="{{item.result === 'fail'}}">不合格</text>
+        </view>
+
+        <view class="sub-info" wx:if="{{item.subTitle}}">{{item.subTitle}}</view>
+        <view class="desc-info">{{item.desc}}</view>
+      </view>
+
+      <view class="card-footer">
+        <view class="action-btn restore" catchtap="restoreRecord" data-index="{{item.originalIndex}}">
+          恢复数据
+        </view>
+        <view class="action-btn delete" catchtap="deleteHistory" data-index="{{item.originalIndex}}">
+          删除
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{displayList.length === 0}}">
+    <image class="empty-img" src="/images/tab-tools.png" mode="aspectFit" style="opacity:0.3; filter: grayscale(100%);"></image>
+    <text>暂无{{filterType !== 'all' ? '此类' : ''}}记录</text>
+  </view>
+</view>

@@ -1,0 +1,65 @@
+<view class="container">
+  <!-- 顶部概览卡片 -->
+  <view class="card header-card">
+    <view class="title-row">
+      <view class="title">{{record.title || '记录详情'}}</view>
+      <view class="status-badge {{record.result === 'pass' ? 'pass' : record.result === 'fail' ? 'fail' : ''}}" wx:if="{{record.result}}">
+        {{record.result === 'pass' ? '合格' : '不合格'}}
+      </view>
+    </view>
+    <view class="sub-title" wx:if="{{record.subTitle}}">{{record.subTitle}}</view>
+    <view class="time">创建时间：{{record.timeLabel}}</view>
+  </view>
+
+  <!-- 通用参数列表 (KV展示) -->
+  <view class="card" wx:if="{{record.details && record.details.length}}">
+    <view class="section-header">详细参数</view>
+    <view class="kv-list">
+      <view class="kv-item" wx:for="{{record.details}}" wx:key="index">
+        <text class="key">{{item.label}}</text>
+        <text class="value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 压力校验专用表格 (仅 Pressure 类型显示) -->
+  <view class="card table-card" wx:if="{{record.type === 'pressure' && record.tableData && record.tableData.length}}">
+    <view class="section-header">校验数据表</view>
+    <view class="scroll-tip">← 左右滑动查看 →</view>
+    
+    <scroll-view scroll-x="true" class="table-scroll">
+      <view class="table">
+        <view class="tr header">
+          <view class="th fixed-col">标准值</view>
+          <view class="th">升压实测</view>
+          <view class="th">降压实测</view>
+          <view class="th">升压误差</view>
+          <view class="th">降压误差</view>
+          <view class="th">回程误差</view>
+          <view class="th">结论</view>
+        </view>
+        <view class="tr" wx:for="{{record.tableData}}" wx:key="index">
+          <view class="td fixed-col">{{item.standard}}</view>
+          <view class="td">{{item.valUp || '-'}}</view>
+          <view class="td">{{item.valDown || '-'}}</view>
+          <view class="td">{{item.errUp || '-'}}</view>
+          <view class="td">{{item.errDown || '-'}}</view>
+          <view class="td">{{item.hysteresis || '-'}}</view>
+          <view class="td result-col">
+            <text class="{{item.result === 'pass' ? 'text-pass' : item.result === 'fail' ? 'text-fail' : ''}}">
+              {{item.result === 'pass' ? '✓' : item.result === 'fail' ? '✗' : '-'}}
+            </text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="footer-placeholder"></view>
+  <view class="footer-bar">
+    <button class="btn-restore" bindtap="onRestore">
+      恢复数据并计算
+    </button>
+  </view>
+</view>

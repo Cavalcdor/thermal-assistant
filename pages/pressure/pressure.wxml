@@ -1,0 +1,116 @@
+<!-- pages/pressure/pressure.wxml -->
+<view class="container">
+  
+  <!-- 顶部：编号与类型切换 -->
+  <view class="header-card">
+    <view class="input-row">
+      <text class="label">仪表编号</text>
+      <input class="input-underline" placeholder="请输入编号" value="{{tabs[currentTab].deviceNo}}" bindinput="onDeviceNoInput" />
+    </view>
+    
+    <view class="tabs">
+      <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">压力表</view>
+      <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">变送器(mA)</view>
+    </view>
+  </view>
+
+  <!-- 参数设定区域 -->
+  <view class="card">
+    <view class="section-title">参数设定</view>
+    <view class="form-grid">
+      <view class="form-item">
+        <text class="label">量程下限</text>
+        <view class="input-wrap">
+          <input type="digit" value="{{tabs[currentTab].rangeMin}}" placeholder="0" bindinput="onRangeMinInput"/>
+          <text class="unit">{{currentTab===0 ? 'MPa' : 'kPa'}}</text>
+        </view>
+      </view>
+      
+      <view class="form-item">
+        <text class="label">量程上限</text>
+        <view class="input-wrap">
+          <input type="digit" value="{{tabs[currentTab].rangeMax}}" bindinput="onRangeMaxInput"/>
+          <text class="unit">{{currentTab===0 ? 'MPa' : 'kPa'}}</text>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="label">精度等级</text>
+        <view class="input-wrap">
+          <input type="digit" value="{{tabs[currentTab].accuracy}}" bindinput="onAccuracyInput"/>
+          <text class="unit">级</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="result-display">
+      <text class="result-label">允许误差：±{{tabs[currentTab].allowedError}} {{currentTab===0 ? 'MPa' : 'mA'}}</text>
+    </view>
+  </view>
+
+  <!-- 快捷操作 -->
+  <view class="toolbar">
+    <view class="btn-outline" bindtap="generateStandardPoints">生成5点测试</view>
+    <view class="btn-outline" bindtap="clearPoints">重置当前数据</view>
+  </view>
+
+  <!-- 校验表格 -->
+  <view class="card table-card">
+    <view class="section-title">校验数据录入</view>
+    <view class="scroll-tip">← 左右滑动查看完整表格 →</view>
+
+    <scroll-view scroll-x="true" class="table-scroll">
+      <view class="table">
+        <view class="tr header">
+          <view class="th fixed-col">标准点</view>
+          <view class="th" wx:if="{{currentTab===1}}">理论(mA)</view>
+          <view class="th input-col">升压实测</view>
+          <view class="th input-col">降压实测</view>
+          <view class="th">升压误差</view>
+          <view class="th">降压误差</view>
+          <view class="th">回程误差</view>
+          <view class="th">判定</view>
+          <view class="th op-col">操作</view>
+        </view>
+
+        <view class="tr" wx:for="{{tabs[currentTab].points}}" wx:key="index">
+          <view class="td fixed-col">
+            <input type="digit" value="{{item.standard}}" bindinput="onStandardInput" data-index="{{index}}" />
+          </view>
+          <view class="td light-bg" wx:if="{{currentTab===1}}">{{item.theory}}</view>
+          <view class="td input-col">
+            <input class="{{item.resultUp === 'fail' ? 'text-fail' : ''}}" type="digit" value="{{item.upValue}}" placeholder="输入" bindinput="onUpInput" data-index="{{index}}" />
+          </view>
+          <view class="td input-col">
+            <input class="{{item.resultDown === 'fail' ? 'text-fail' : ''}}" type="digit" value="{{item.downValue}}" placeholder="输入" bindinput="onDownInput" data-index="{{index}}" />
+          </view>
+          <view class="td {{item.resultUp === 'fail' ? 'bg-fail' : ''}}">{{item.upError || '-'}}</view>
+          <view class="td {{item.resultDown === 'fail' ? 'bg-fail' : ''}}">{{item.downError || '-'}}</view>
+          <view class="td {{item.hysResult === 'fail' ? 'bg-fail' : ''}}">{{item.hysteresis || '-'}}</view>
+          <view class="td result-col">
+            <text class="{{item.finalResult=='pass'?'pass':item.finalResult=='fail'?'fail':''}}">
+              {{item.finalResult=='pass'?'✓':item.finalResult=='fail'?'✗':'-'}}
+            </text>
+          </view>
+          <view class="td op-col">
+            <view class="btn-del-row" catchtap="deletePoint" data-index="{{index}}" wx:if="{{tabs[currentTab].points.length > 1}}">×</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="add-btn" bindtap="addPoint">+ 添加测试点</view>
+  </view>
+
+  <!-- 底部结论栏 -->
+  <view class="footer-placeholder"></view>
+  <view class="footer-bar {{tabs[currentTab].overallResult}}">
+    <view class="conclusion">
+      <text>结论：</text>
+      <text class="status">{{tabs[currentTab].overallResult === 'pass' ? '合格' : tabs[currentTab].overallResult === 'fail' ? '不合格' : '检测中'}}</text>
+    </view>
+    <view class="actions">
+      <button class="btn-clear" bindtap="clearAll">清空全部</button>
+      <button class="btn-save" bindtap="saveRecord">保存记录</button>
+    </view>
+  </view>
+</view>

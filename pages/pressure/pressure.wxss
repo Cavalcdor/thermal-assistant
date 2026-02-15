@@ -1,0 +1,322 @@
+/* pages/pressure/pressure.wxss */
+
+/* 顶部 Tab 和 编号 */
+.header-card {
+  background: #fff;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.input-underline {
+  flex: 1;
+  border-bottom: 2rpx solid #ddd;
+  padding: 10rpx;
+  font-size: 32rpx;
+  margin-left: 20rpx;
+  color: #333;
+}
+
+.tabs {
+  display: flex;
+  background: #f0f0f0;
+  border-radius: 12rpx;
+  padding: 6rpx;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  border-radius: 8rpx;
+}
+
+.tab-item.active {
+  background: #fff;
+  color: #0052D9;
+  font-weight: 600;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+}
+
+/* 参数表单 Grid */
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-item {
+  width: 31%; /* 一行放3个 */
+  margin-bottom: 20rpx;
+}
+
+.form-item .label {
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 8rpx;
+  padding: 12rpx;
+}
+
+.input-wrap input {
+  width: 100%;
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+}
+
+.input-wrap .unit {
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 4rpx;
+}
+
+.result-display {
+  background: #F0F6FF;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.result-label {
+  color: #0052D9;
+  font-weight: 600;
+  font-size: 30rpx;
+}
+
+/* 快捷栏 */
+.toolbar {
+  display: flex;
+  gap: 20rpx;
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.btn-outline {
+  flex: 1;
+  background: #fff;
+  border: 1rpx solid #0052D9;
+  color: #0052D9;
+  text-align: center;
+  padding: 16rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+/* 核心表格样式 */
+.table-card {
+  padding-bottom: 40rpx;
+}
+
+.scroll-tip {
+  font-size: 22rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.table-scroll {
+  width: 100%;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  min-width: 1300rpx;
+}
+
+.tr {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1rpx solid #eee;
+}
+
+.tr.header {
+  background: #f8f8f8;
+  font-weight: bold;
+}
+
+.th, .td {
+  padding: 0rpx 10rpx;
+  height: 90rpx;
+  text-align: center;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140rpx;
+  flex-shrink: 0;
+  border-right: 1rpx solid #f0f0f0;
+}
+
+/* 固定首列效果*/
+.fixed-col {
+  width: 120rpx;
+  background: #fff;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  border-right: 2rpx solid #eee;
+}
+.tr.header .fixed-col { background: #f8f8f8; }
+
+.input-col {
+  width: 160rpx; /* 输入列稍微宽一点 */
+  background: #fffbe6; /* 淡黄色背景提示可输入 */
+}
+
+.input-col input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+/* 结果样式 */
+.text-fail { color: #D9001B; font-weight: bold; }
+.bg-fail { background-color: #ffeae9; color: #D9001B; }
+
+.pass { color: #07C160; font-size: 32rpx; font-weight: bold; }
+.fail { color: #D9001B; font-size: 32rpx; font-weight: bold; }
+
+.add-btn {
+  text-align: center;
+  padding: 30rpx;
+  color: #0052D9;
+  font-size: 28rpx;
+  background: #f9f9f9;
+  margin-top: 10rpx;
+}
+
+/* 底部结论栏 */
+/* ================= 底部结论栏优化 ================= */
+
+.footer-placeholder {
+  height: 160rpx; /* 占位高度，防止内容被遮挡 */
+}
+
+.footer-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  /* 顶部增加细边框，不再用粗条 */
+  border-top: 1rpx solid #eee;
+  /* 增加阴影提升层次感 */
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+  
+  /* 布局核心 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* 内边距与适配 */
+  padding: 20rpx 32rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  z-index: 100;
+}
+
+/* 左侧结论区域 */
+.conclusion {
+  display: flex;
+  align-items: baseline; /* 文字基线对齐 */
+  white-space: nowrap;   /* 强制不换行 */
+  flex-shrink: 0;        /* 防止被压缩 */
+  margin-right: 30rpx;
+}
+
+.conclusion text:first-child {
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 8rpx;
+}
+
+.conclusion .status {
+  font-size: 40rpx;     /* 放大结果文字 */
+  font-weight: 800;     /* 加粗 */
+  line-height: 1;
+}
+
+/* 状态颜色动态变化 */
+.footer-bar.pass .status { color: #07C160; } /* 绿色 */
+.footer-bar.fail .status { color: #D9001B; } /* 红色 */
+.footer-bar .status { color: #999; }         /* 默认灰色 */
+
+/* 右侧按钮区域 */
+.actions {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end; /* 靠右对齐 */
+  gap: 20rpx; /* 按钮之间的间距 */
+}
+
+/* 按钮通用样式重置 */
+.actions button {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;        /* 按钮高度 */
+  border-radius: 40rpx; /* 圆角胶囊形 */
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+/* 清空按钮 - 弱化显示 */
+.btn-clear {
+  background: #F5F5F5 !important;
+  color: #666 !important;
+  width: 140rpx !important; /* 固定宽度 */
+}
+
+/* 保存按钮 - 强调显示 */
+.btn-save {
+  background: #0052D9 !important;
+  color: #fff !important;
+  flex: 1;              /* 占据剩余空间，或者设置最大宽 */
+  max-width: 240rpx;    /* 限制最大宽度 */
+}
+
+/* 点击态效果 */
+.btn-save:active { opacity: 0.9; }
+.btn-clear:active { background: #e0e0e0 !important; }
+
+/* 操作列样式 */
+.op-col {
+  width: 80rpx;
+  flex-shrink: 0;
+}
+
+.btn-del-row {
+  width: 44rpx;
+  height: 44rpx;
+  background-color: #FFF0F0;
+  color: #D9001B;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.btn-del-row:active {
+  background-color: #FFDADA;
+}

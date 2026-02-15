@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/thermal/thermal",
+    "pages/pressure/pressure",
+    "pages/tools/tools",
+    "pages/profile/profile",
+    "pages/history/history",
+    "pages/settings/settings",
+    "pages/history/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0052D9",
+    "navigationBarTitleText": "工控热工宝",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F5F5"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#0052D9",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/thermal/thermal",
+        "text": "温度转换",
+        "iconPath": "images/tab-thermal.png",
+        "selectedIconPath": "images/tab-thermal-active.png"
+      },
+      {
+        "pagePath": "pages/pressure/pressure",
+        "text": "压力校验",
+        "iconPath": "images/tab-pressure.png",
+        "selectedIconPath": "images/tab-pressure-active.png"
+      },
+      {
+        "pagePath": "pages/tools/tools",
+        "text": "单位换算",
+        "iconPath": "images/tab-tools.png",
+        "selectedIconPath": "images/tab-tools-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tab-profile.png",
+        "selectedIconPath": "images/tab-profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

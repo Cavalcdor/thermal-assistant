@@ -1,0 +1,95 @@
+<view class="container">
+  <!-- 顶部选项卡 -->
+  <view class="tabs">
+    <view class="tab-item {{activeTab === 'unit' ? 'active' : ''}}" bindtap="switchTab" data-tab="unit">单位换算</view>
+    <view class="tab-item {{activeTab === 'cems' ? 'active' : ''}}" bindtap="switchTab" data-tab="cems">CEMS 换算</view>
+  </view>
+
+  <!-- 1. 单位换算板块 -->
+  <view wx:if="{{activeTab === 'unit'}}">
+    <view class="card">
+      <view class="segment-control">
+        <view class="segment-item {{unitType === 'pressure' ? 'active' : ''}}" bindtap="switchUnitType" data-type="pressure">压力换算</view>
+        <view class="segment-item {{unitType === 'temperature' ? 'active' : ''}}" bindtap="switchUnitType" data-type="temperature">温度换算</view>
+      </view>
+    </view>
+
+    <!-- 1.1 压力换算：全单位列表展示 -->
+    <block wx:if="{{unitType === 'pressure'}}">
+      <view class="pressure-list-card">
+        <view class="list-header">
+          <text>单位名称</text>
+          <text>换算数值</text>
+        </view>
+        <view class="pressure-item" wx:for="{{pressureUnits}}" wx:key="*this">
+          <view class="unit-label">
+            <text class="unit-main">{{item}}</text>
+          </view>
+          <input 
+            class="unit-input {{activePressureUnit === item ? 'input-active' : ''}}" 
+            type="digit" 
+            value="{{pressureResults[item]}}" 
+            placeholder="0.00" 
+            data-unit="{{item}}"
+            bindinput="onPressureInput"
+            bindfocus="onPressureInput"
+          />
+        </view>
+      </view>
+      <view class="hint-text">* 在任意单位框输入数值，其他单位将自动换算</view>
+    </block>
+
+    <!-- 1.2 温度换算：传统双向模式 -->
+    <block wx:else>
+      <view class="card">
+        <view class="input-label">输入值</view>
+        <view class="input-box">
+          <input class="input-field" type="digit" value="{{tempInputValue}}" placeholder="输入数值" bindinput="onTempInputChange"/>
+          <picker range="{{temperatureUnits}}" value="{{tempInputUnitIndex}}" bindchange="onTempUnitChange" data-type="input">
+            <view class="unit-picker-btn">{{temperatureUnits[tempInputUnitIndex]}} ▼</view>
+          </picker>
+        </view>
+      </view>
+      <view class="card">
+        <view class="input-label">换算为</view>
+        <view class="input-box result-box">
+          <text class="input-field result-field">{{tempOutputValue}}</text>
+          <picker range="{{temperatureUnits}}" value="{{tempOutputUnitIndex}}" bindchange="onTempUnitChange" data-type="output">
+            <view class="unit-picker-btn">{{temperatureUnits[tempOutputUnitIndex]}} ▼</view>
+          </picker>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 2. CEMS 换算板块 -->
+  <view wx:if="{{activeTab === 'cems'}}">
+    <view class="card">
+      <view class="input-label">选择气体 (摩尔质量: {{molarMass}})</view>
+      <picker range="{{gasTypes}}" value="{{gasIndex}}" bindchange="onGasChange">
+        <view class="picker-display">{{gasTypes[gasIndex]}} <text class="arrow">▼</text></view>
+      </picker>
+    </view>
+    <view class="card">
+      <view class="input-label">浓度 (ppm)</view>
+      <view class="input-box">
+        <input class="input-field" type="digit" value="{{ppmValue}}" placeholder="输入ppm" bindinput="onPpmInput"/>
+        <text class="unit-text">ppm</text>
+      </view>
+    </view>
+    <view class="card">
+      <view class="input-label">浓度 (mg/m³)</view>
+      <view class="input-box">
+        <input class="input-field" type="digit" value="{{mgValue}}" placeholder="输入mg/m³" bindinput="onMgInput"/>
+        <text class="unit-text">mg/m³</text>
+      </view>
+    </view>
+    <view class="formula-card">
+      <view class="formula-text">公式: mg/m³ = ppm × M / 22.4</view>
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="btn-primary" bindtap="clearFields">清空数据</button>
+  </view>
+</view>

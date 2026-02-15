@@ -1,0 +1,71 @@
+<view class="container">
+  <!-- 顶部软件信息 -->
+  <view class="header-card">
+    <image class="app-logo" src="/images/tab-tools.png" mode="aspectFit"></image>
+    <view class="app-info">
+      <text class="app-name">热工计算助手</text>
+      <text class="app-version">Version 2.1.0</text>
+    </view>
+  </view>
+
+  <!-- 计算标准说明 -->
+  <view class="card">
+    <view class="section-title">计算标准</view>
+    <view class="formula-item">
+      <text class="formula-label">温度计算：</text>
+      <text class="formula-desc">基于ITS-90国际温标标准公式。</text>
+    </view>
+    <view class="formula-item">
+      <text class="formula-label">CEMS换算：</text>
+      <text class="formula-desc">基于标准状态(0℃, 101.325kPa) 理想气体状态方程。</text>
+    </view>
+    <view class="formula-item">
+      <text class="formula-label">数值精度：</text>
+      <text class="formula-desc">采用高精度Decimal运算，自动适配科学计数法。</text>
+    </view>
+  </view>
+
+  <!-- 更新日志 -->
+  <view class="card">
+    <view class="section-title">更新日志</view>
+    <view class="log-item">
+      <view class="log-dot"></view>
+      <view class="log-content">
+        <text class="log-version">v2.1.0</text>
+        <text class="log-text">· 压力换算新增Pa单位支持</text>
+        <text class="log-text">· 压力换算由下拉模式改为列表全显模式</text>
+        <text class="log-text">· 优化计算引擎，解决小数值转换精度问题</text>
+      </view>
+    </view>
+    <view class="log-item">
+      <view class="log-dot gray"></view>
+      <view class="log-content">
+        <text class="log-version">v2.0.0</text>
+        <text class="log-text">· 架构升级，支持历史记录恢复</text>
+        <text class="log-text">· 增加部分模块</text>
+      </view>
+    </view>
+  </view>
+  <!-- 待扩展功能预留 -->
+  <view class="card todo-card" bindtap="showTodoHint">
+    <view class="setting-item">
+      <view class="setting-label">
+        <text class="label-text">高级功能库 (待扩展)</text>
+        <text class="label-hint">标准器预设、电子手册、数据导出等</text>
+      </view>
+      <text class="arrow">更多 ></text>
+    </view>
+  </view>
+  <!-- 免责声明 -->
+  <view class="disclaimer">
+    <text class="disclaimer-title">免责声明</text>
+    <text class="disclaimer-text">本程序提供的计算结果仅供工程参考，不作为法定计量检定依据。在重大工程中使用时，请以专业计量器具及纸质标准规范为准。</text>
+  </view>
+
+  <!-- 联系与反馈 -->
+  <view class="action-section">
+    <button class="btn-feedback" open-type="feedback">
+      意见反馈与建议
+    </button>
+  </view>
+</view>

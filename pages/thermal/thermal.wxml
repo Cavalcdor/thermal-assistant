@@ -1,0 +1,102 @@
+<!-- pages/thermal/thermal.wxml -->
+<view class="container">
+  <!-- 类型切换 -->
+  <view class="card">
+    <view class="segment-control">
+      <view 
+        class="segment-item {{sensorType === 'thermocouple' ? 'active' : ''}}"
+        bindtap="switchType"
+        data-type="thermocouple">
+        热电偶
+      </view>
+      <view 
+        class="segment-item {{sensorType === 'rtd' ? 'active' : ''}}"
+        bindtap="switchType"
+        data-type="rtd">
+        热电阻
+      </view>
+    </view>
+  </view>
+
+  <!-- 型号选择 -->
+  <view class="card">
+    <view class="input-label">选择型号</view>
+    <picker 
+      range="{{typeOptions}}" 
+      value="{{selectedTypeIndex}}" 
+      bindchange="onTypeChange">
+      <view class="picker-display">
+        {{typeOptions[selectedTypeIndex]}}
+        <text class="arrow">▼</text>
+      </view>
+    </picker>
+    <view class="hint-text">{{rangeHint}}</view>
+  </view>
+
+  <!-- 冷端补偿 -->
+  <view class="card" wx:if="{{sensorType === 'thermocouple'}}">
+    <view class="input-wrapper">
+      <text class="input-label">环境温度（冷端补偿）</text>
+      <view class="input-box">
+        <input 
+          class="input-field" 
+          type="digit" 
+          value="{{coldJunction}}"
+          placeholder="0"
+          bindblur="onColdJunctionChange"/>
+        <text class="input-unit">℃</text>
+      </view>
+      <view class="hint-text">默认为0℃，可根据现场环境调整</view>
+    </view>
+  </view>
+
+  <!-- 温度输入 -->
+  <view class="card">
+    <view class="input-wrapper">
+      <text class="input-label">温度</text>
+      <view class="input-box {{tempError ? 'error-border' : ''}}">
+        <input 
+          class="input-field" 
+          type="digit" 
+          value="{{temperature}}"
+          placeholder="输入温度"
+          bindinput="onTempInput"
+          bindfocus="onTempFocus"
+          bindblur="onTempBlur"/>
+        <text class="input-unit">℃</text>
+        <view class="clear-btn" bindtap="clearTemp" wx:if="{{temperature}}">
+          <text class="clear-icon">×</text>
+        </view>
+      </view>
+      <view class="error-text" wx:if="{{tempError}}">{{tempError}}</view>
+    </view>
+  </view>
+
+  <!-- 电信号显示/输入 -->
+  <view class="card">
+    <view class="input-wrapper">
+      <text class="input-label">{{signalLabel}}</text>
+      <view class="input-box {{signalError ? 'error-border' : ''}}">
+        <input 
+          class="input-field result-field" 
+          type="digit" 
+          value="{{signal}}"
+          placeholder="{{signalPlaceholder}}"
+          bindinput="onSignalInput"
+          bindfocus="onSignalFocus"
+          bindblur="onSignalBlur"/>
+        <text class="input-unit">{{signalUnit}}</text>
+        <view class="clear-btn" bindtap="clearSignal" wx:if="{{signal}}">
+          <text class="clear-icon">×</text>
+        </view>
+      </view>
+      <view class="error-text" wx:if="{{signalError}}">{{signalError}}</view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <view class="btn-secondary" bindtap="clearAll">清空</view>
+    <view class="btn-primary" bindtap="saveRecord">保存记录</view>
+  </view>
+</view>
