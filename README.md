@@ -1,7 +1,6 @@
 # 工控热工宝 (thermal-assistant)
 <div align="center">
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/Cavalcdor/thermal-assistant)](https://github.com/Cavalcdor/thermal-assistant/commits/main)
 [![GitHub License](https://img.shields.io/github/license/Cavalcdor/thermal-assistant)](./LICENSE)
 [![WeChat Mini Program](https://img.shields.io/badge/微信小程序-基础库2.0+-brightgreen)](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 [![Status](https://img.shields.io/badge/项目状态-已上线/稳定版-success)](https://github.com/Cavalcdor/thermal-assistant)
