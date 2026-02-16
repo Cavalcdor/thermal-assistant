@@ -1,21 +1,22 @@
-MIT License
+# 专有使用许可证
+Copyright (c) 2026 Chaoran Weng
 
-Copyright (c) 2026 Charles Weng
+## 知识产权声明
+本软件（含源代码、文档、相关衍生作品）已依法取得《计算机软件著作权登记证书》。
+本软件的著作权（包括但不限于复制权、发行权、改编权、信息网络传播权等）均归翁超然所有，受《著作权法》保护。
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## 使用授权规则
+1. **允许使用范围**：仅限个人、非商业机构以“学习、研究、非盈利测试”为目的，免费下载、查看、修改本软件源代码；
+2. **禁止使用范围**：任何个人、企业、组织不得将本软件（含修改后的衍生版本）用于商业用途，包括但不限于：
+   - 将本软件出售、出租、授权给第三方获取经济利益；
+   - 将本软件集成到商业产品/服务中（如付费软件、SAAS平台、商用硬件配套程序等）；
+   - 利用本软件提供有偿技术服务、定制开发等；
+   - 其他以获取直接/间接经济利益为目的的使用行为。
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 免责条款
+1. 本软件按“原样”提供，作者不承担任何因使用本软件导致的直接/间接损失赔偿责任；
+2. 未经授权的商用行为，作者将依据《著作权法》追究侵权方的民事/行政责任，情节严重的将追究刑事责任。
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## 其他
+1. 如需获得商用授权，请联系：1700121980@qq.com；
+2. 本许可证的解释权归翁超然所有。
