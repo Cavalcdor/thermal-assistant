@@ -3,8 +3,8 @@
   <view class="header-card">
     <image class="app-logo" src="/images/tab-tools.png" mode="aspectFit"></image>
     <view class="app-info">
-      <text class="app-name">热工计算助手</text>
-      <text class="app-version">Version 2.1.0</text>
+      <text class="app-name">工控热工宝</text>
+      <text class="app-version">Version 2.1.1</text>
     </view>
   </view>
 

@@ -44,7 +44,7 @@
       <view class="card">
         <view class="input-label">输入值</view>
         <view class="input-box">
-          <input class="input-field" type="digit" value="{{tempInputValue}}" placeholder="输入数值" bindinput="onTempInputChange"/>
+          <input class="input-field" type="digit" value="{{tempInputValue}}" placeholder="输入数值" bindinput="onTempInput"/>
           <picker range="{{temperatureUnits}}" value="{{tempInputUnitIndex}}" bindchange="onTempUnitChange" data-type="input">
             <view class="unit-picker-btn">{{temperatureUnits[tempInputUnitIndex]}} ▼</view>
           </picker>
