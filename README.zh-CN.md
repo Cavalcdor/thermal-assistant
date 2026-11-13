@@ -1,6 +1,8 @@
 [English](README.md) | 简体中文
 
 # 工控热工宝 (thermal-assistant)
+
+![Platform: WeChat Mini Program](https://img.shields.io/badge/Platform-WeChat%20Mini%20Program-07C160?style=flat-square) ![Language: JavaScript](https://img.shields.io/badge/Language-JavaScript-D4B830?style=flat-square) ![Mode: Offline Calculations](https://img.shields.io/badge/Mode-Offline%20Calculations-64748B?style=flat-square)
 <div align="center">
 
 [![License](https://img.shields.io/badge/著作权-商用禁止-red.svg)](https://github.com/Cavalcdor/thermal-assistant/blob/main/LICENSE)

@@ -2,6 +2,8 @@
 
 # Thermal Assistant
 
+![Platform: WeChat Mini Program](https://img.shields.io/badge/Platform-WeChat%20Mini%20Program-07C160?style=flat-square) ![Language: JavaScript](https://img.shields.io/badge/Language-JavaScript-D4B830?style=flat-square) ![Mode: Offline Calculations](https://img.shields.io/badge/Mode-Offline%20Calculations-64748B?style=flat-square)
+
 A native **WeChat Mini Program** for temperature/sensor conversion, pressure-instrument calibration calculations and engineering unit conversion. The application is named **工控热工宝** in its Chinese interface.
 
 Core calculations work locally, including in weak-network industrial environments. The app provides input validation, configurable vibration feedback, local history and result precision settings without requiring an account.
