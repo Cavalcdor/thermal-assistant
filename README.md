@@ -2,6 +2,8 @@
 
 # Thermal Assistant
 
+[![License](https://img.shields.io/badge/License-Noncommercial-A94442?style=flat-square)](LICENSE)
+
 ![Platform: WeChat Mini Program](https://img.shields.io/badge/Platform-WeChat%20Mini%20Program-07C160?style=flat-square) ![Language: JavaScript](https://img.shields.io/badge/Language-JavaScript-D4B830?style=flat-square) ![Mode: Offline Calculations](https://img.shields.io/badge/Mode-Offline%20Calculations-64748B?style=flat-square)
 
 A native **WeChat Mini Program** for temperature/sensor conversion, pressure-instrument calibration calculations and engineering unit conversion. The application is named **工控热工宝** in its Chinese interface.
@@ -102,6 +104,6 @@ This is an auxiliary calculation tool. Results are for reference and have no sta
 
 ## License
 
-See [LICENSE](LICENSE) for the applicable terms.
+Copyright © 2026 Chaoran Weng. This software is **proprietary and may not be used commercially**. The existing [proprietary license](LICENSE) permits individuals and noncommercial organizations to download, view and modify source code only for learning, research and nonprofit testing. Selling, renting, commercial sublicensing, integration into commercial products/services and paid technical services are prohibited without separate authorization. These restrictions also cover modified versions. This project is not MIT-licensed or offered under an open-source license.
 
 Maintained by Cavalcdor. The original release documentation is dated 2026-02-15.

@@ -2,10 +2,11 @@
 
 # 工控热工宝 (thermal-assistant)
 
+[![License](https://img.shields.io/badge/License-Noncommercial-A94442?style=flat-square)](LICENSE)
+
 ![Platform: WeChat Mini Program](https://img.shields.io/badge/Platform-WeChat%20Mini%20Program-07C160?style=flat-square) ![Language: JavaScript](https://img.shields.io/badge/Language-JavaScript-D4B830?style=flat-square) ![Mode: Offline Calculations](https://img.shields.io/badge/Mode-Offline%20Calculations-64748B?style=flat-square)
 <div align="center">
 
-[![License](https://img.shields.io/badge/著作权-商用禁止-red.svg)](https://github.com/Cavalcdor/thermal-assistant/blob/main/LICENSE)
 [![WeChat Mini Program](https://img.shields.io/badge/微信小程序-基础库2.0+-brightgreen)](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 [![Status](https://img.shields.io/badge/项目状态-已上线/稳定版-success)](https://github.com/Cavalcdor/thermal-assistant)
 [![Platform](https://img.shields.io/badge/平台-全平台微信小程序兼容-blue)](https://github.com/Cavalcdor/thermal-assistant)
@@ -227,7 +228,7 @@ thermal-assistant/
 ├── project.private.config.json  # 开发者个人私有配置文件（不上传git）
 ├── sitemap.json             # 微信搜索收录配置文件
 ├── README.md                # 项目说明文档
-└── LICENSE                  # 开源协议文件
+└── LICENSE                  # 专有使用许可证
 ```
 
 ---
@@ -349,7 +350,7 @@ thermal-assistant/
 ---
 
 ## 📄 许可证
-详细协议内容请查看LICENSE文件。
+Copyright © 2026 Chaoran Weng。本软件为**专有软件，禁止未经单独授权的商业使用**。现有[专有使用许可证](LICENSE)仅允许个人及非商业机构为学习、研究、非盈利测试目的下载、查看和修改源码；禁止出售、出租、商业转授权、集成至商业产品或服务、提供有偿技术服务等行为，修改后的衍生版本同样受限。本项目不采用 MIT 或其他开源许可证。
 
 ---
 
